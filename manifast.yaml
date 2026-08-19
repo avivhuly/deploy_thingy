@@ -1,0 +1,12 @@
+project-name: <project-name>
+version: 1.0.0
+compose-path: /path/to/compose
+
+files:
+  - file-name:
+    path-in-tar: /path/in/tar
+    path-in-server: /path/in/server 
+
+
+
+
