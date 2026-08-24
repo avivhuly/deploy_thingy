@@ -1,5 +1,6 @@
-from src.modles.modles import Environment, OperatingSystem, ContainerEngine, ComposeEngine
+from modles.modles import Environment, OperatingSystem, ContainerEngine, ComposeEngine
 import platform
+from pathlib import Path
 import shutil
 import subprocess
 
@@ -40,6 +41,12 @@ def detect_compose_runtime() -> ComposeEngine | None:
 
 def detect_service(proj_name: str) -> bool:
     return subprocess.run(["systemctl", "cat", f"{proj_name}.service", "&>", "/dev/null"]).returncode == 0
+
+def ensure_directory(environment: Environment) -> None:
+    if environment.os == OperatingSystem.WINDOWS:
+        Path("C:\\bldmz").mkdir(parents=True, exist_ok=True)
+    elif environment.os == OperatingSystem.LINUX:
+        Path("/opt/bldmz").mkdir(parents=True, exist_ok=True)
 
 def detect_environment() -> Environment:
     os = get_os()

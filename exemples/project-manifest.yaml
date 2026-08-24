@@ -1,0 +1,5 @@
+project-name: <project-name>
+version: 1.x.x
+compose-path: /path/to/compose
+files: 
+  path.in.tar: /path/in/erver

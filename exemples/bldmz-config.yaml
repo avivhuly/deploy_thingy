@@ -1,0 +1,7 @@
+version: x.x.x
+docker-engine: docker
+compose-engine: docker-compose
+projects:
+  - project-name: <project-name>
+    version: 1.0.0
+    manifest-path: /path/to/manifest.yaml
